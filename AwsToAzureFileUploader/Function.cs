@@ -62,16 +62,19 @@ namespace AwsToAzureFileUploader
                 return null;
             }
 
+            //Decode object key from event
+            var s3EventObjectKey = Uri.UnescapeDataString(s3Event.Object.Key);
+
             try
             {
-                logger.LogLineWithId($"S3 event received. Uploading object to Azure: {s3Event.Bucket.Name}/{s3Event.Object.Key}");
-                var response = await this.S3Client.GetObjectMetadataAsync(s3Event.Bucket.Name, s3Event.Object.Key);
-                await UploadToAzure(s3Event.Bucket.Name, s3Event.Object.Key);
+                logger.LogLineWithId($"S3 event received. Uploading object to Azure: {s3Event.Bucket.Name}/{s3EventObjectKey}");
+                var response = await this.S3Client.GetObjectMetadataAsync(s3Event.Bucket.Name, s3EventObjectKey);
+                await UploadToAzure(s3Event.Bucket.Name, s3EventObjectKey);
                 return response.Headers.ContentType;
             }
             catch(Exception e)
             {
-                logger.LogLineWithId($"Error uploading object {s3Event.Object.Key} in bucket {s3Event.Bucket.Name} to Azure");
+                logger.LogLineWithId($"Error uploading object {s3EventObjectKey} in bucket {s3Event.Bucket.Name} to Azure");
                 logger.LogLine(e.Message);
                 logger.LogLine(e.StackTrace);
                 throw;
