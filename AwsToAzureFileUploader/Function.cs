@@ -1,5 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 using Amazon.Lambda.Core;
@@ -8,9 +12,6 @@ using Amazon.S3;
 using Amazon.S3.Model;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
-using System.IO;
-using System.Text;
-using System.Security.Cryptography;
 using Microsoft.WindowsAzure.Storage.Auth;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
@@ -63,7 +64,7 @@ namespace AwsToAzureFileUploader
             }
 
             //Decode object key from event
-            var s3EventObjectKey = Uri.UnescapeDataString(s3Event.Object.Key);
+            var s3EventObjectKey = WebUtility.UrlDecode(s3Event.Object.Key);
 
             try
             {
