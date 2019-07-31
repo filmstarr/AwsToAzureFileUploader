@@ -10,7 +10,7 @@ AwsToAzureFileUploader has been build to memory efficient, streaming and writing
 The prerequisits and configuration of this Lambda function are no different to any other. This project contains a set of default configuration values in the 
 [aws-lambda-tools-defaults.json file](AwsToAzureFileUploader/aws-lambda-tools-defaults.json), which define the region the AwsToAzureFileUploader function is to run in, the length of time that the function can run for, the maximum memory that it can use, the IAM role under which the function is to run and the function variables (as detailed below). These should be changed to suitable values for your requirements and production enviroment.
 
-The IAM role used will need to have a policy which can get/put objects from/to the S3 bucket(s) that you wish to compress files in, as well as suitable CloudWatch permissions. The AWSLambdaExecute managed policy is a good place to start:
+The IAM role used will need to have a policy which can get objects from the S3 bucket(s) that you wish to upload files from, as well as suitable CloudWatch permissions. The AWSLambdaExecute managed policy is a good place to start:
 
 ```
 {
