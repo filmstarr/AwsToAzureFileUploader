@@ -9,13 +9,13 @@
     "profile"     : "default",
     "region"      : "eu-west-1",
     "configuration" : "Release",
-    "framework"     : "netcoreapp2.1",
+    "framework"     : "netcoreapp3.1",
     "function-name" : "AwsToAzureFileUploader",
-    "function-runtime" : "dotnetcore2.1",
+    "function-runtime" : "dotnetcore3.1",
     "function-memory-size" : 1536,
     "function-timeout"     : 300,
     "function-handler"     : "AwsToAzureFileUploader::AwsToAzureFileUploader.Function::FunctionHandler",
-    "function-role"        : "arn:aws:iam::239380155665:role/lambda_exec_AwsToAzureFileUploader",
+    "function-role"        : "lambda_exec_AwsToAzureFileUploader",
     "environment-variables" : "\"FilePartSizeMB\"=\"100\";\"FlattenFilePaths\"=\"false\";\"OutputFolderPath\"=\"\";\"AzureAccessKey\"=\"\";\"StorageAccount\"=\"\";\"OutputContainer\"=\"\"",
     "tracing-mode"          : "PassThrough"
 }
