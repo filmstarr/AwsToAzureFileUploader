@@ -9,6 +9,7 @@ using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
+using static Amazon.Lambda.S3Events.S3Event;
 
 namespace AwsToAzureFileUploader.Tests
 {
@@ -40,14 +41,14 @@ namespace AwsToAzureFileUploader.Tests
                 // Setup the S3 event object that S3 notifications would create with the fields used by the Lambda function.
                 var s3Event = new S3Event
                 {
-                    Records = new List<S3EventNotification.S3EventNotificationRecord>
+                    Records = new List<S3EventNotificationRecord>
                     {
-                        new S3EventNotification.S3EventNotificationRecord
+                        new S3EventNotificationRecord
                         {
-                            S3 = new S3EventNotification.S3Entity
+                            S3 = new S3Entity
                             {
-                                Bucket = new S3EventNotification.S3BucketEntity {Name = bucketName },
-                                Object = new S3EventNotification.S3ObjectEntity {Key = key }
+                                Bucket = new S3BucketEntity {Name = bucketName },
+                                Object = new S3ObjectEntity {Key = key }
                             }
                         }
                     }
