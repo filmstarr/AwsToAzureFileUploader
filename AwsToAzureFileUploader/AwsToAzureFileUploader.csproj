@@ -10,7 +10,7 @@
     <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="2.1.0" />
     <PackageReference Include="Amazon.Lambda.S3Events" Version="3.0.0" />
     <PackageReference Include="AWSSDK.S3" Version="3.7.103.1" />
-    <PackageReference Include="Microsoft.Azure.Storage.DataMovement" Version="2.0.4" />
+    <PackageReference Include="Microsoft.Azure.Storage.DataMovement" Version="2.0.5" />
     <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>
 
