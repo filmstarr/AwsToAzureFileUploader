@@ -9,13 +9,17 @@
     "profile"     : "default",
     "region"      : "eu-west-1",
     "configuration" : "Release",
-    "framework"     : "net6.0",
+    "framework"     : "net8.0",
     "function-name" : "AwsToAzureFileUploader",
-    "function-runtime" : "dotnet6",
+    "function-runtime" : "dotnet8",
     "function-memory-size" : 1536,
     "function-timeout"     : 300,
     "function-handler"     : "AwsToAzureFileUploader::AwsToAzureFileUploader.Function::FunctionHandler",
     "function-role"        : "lambda_exec_AwsToAzureFileUploader",
     "environment-variables" : "\"FilePartSizeMB\"=\"100\";\"FlattenFilePaths\"=\"false\";\"OutputFolderPath\"=\"\";\"AzureAccessKey\"=\"\";\"StorageAccount\"=\"\";\"OutputContainer\"=\"\"",
-    "tracing-mode"          : "PassThrough"
+    "package-type"          : "Zip",
+    "function-architecture" : "x86_64",
+    "tracing-mode"          : "PassThrough",
+    "image-tag"             : "",
+    "function-description"  : ""
 }
